@@ -1,7 +1,7 @@
 import { CATEGORIES, UNKNOWN_COLOR, categoryColor, categoryLabel, formatDate } from './main.js';
 import { openModal } from './modal.js';
 
-const CATS = Object.keys(CATEGORIES);
+function getCats() { return Object.keys(CATEGORIES); }
 const MIN_RADIUS = 20;
 const MAX_RADIUS = 50;
 const CENTER_RADIUS = 28;
@@ -44,8 +44,8 @@ function renderDesktop() {
   const counts = countByCategory(_events);
   const maxCount = Math.max(...Object.values(counts), 1);
 
-  _nodePositions = CATS.map((cat, i) => {
-    const angle = (i / CATS.length) * Math.PI * 2 - Math.PI / 2;
+  _nodePositions = getCats().map((cat, i) => {
+    const angle = (i / getCats().length) * Math.PI * 2 - Math.PI / 2;
     const count = counts[cat] ?? 0;
     const r = MIN_RADIUS + ((count / maxCount) * (MAX_RADIUS - MIN_RADIUS));
     return { cat, x: cx + orbitR * Math.cos(angle), y: cy + orbitR * Math.sin(angle), r, count };
@@ -173,7 +173,7 @@ function renderMobileAccordion() {
   container.innerHTML = '';
   const counts = countByCategory(_events);
 
-  CATS.forEach(cat => {
+  getCats().forEach(cat => {
     const count = counts[cat] ?? 0;
     const events = _events.filter(e => e.category === cat);
     const item = document.createElement('div');

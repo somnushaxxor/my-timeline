@@ -116,8 +116,11 @@ async function loadEvents() {
     });
     return events;
   } catch (err) {
-    document.querySelector('main').innerHTML =
-      `<div class="empty-state">Не удалось загрузить события: ${err.message}</div>`;
+    const errEl = document.createElement('div');
+    errEl.className = 'empty-state';
+    errEl.textContent = `Не удалось загрузить события: ${err.message}`;
+    document.querySelector('main').innerHTML = '';
+    document.querySelector('main').appendChild(errEl);
     return null;
   }
 }
@@ -136,4 +139,3 @@ async function init() {
 }
 
 init();
-export { openModal };

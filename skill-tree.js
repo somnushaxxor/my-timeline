@@ -218,9 +218,17 @@ function renderEventList(cat) {
   if (!cat) return;
 
   const events = _events.filter(e => e.category === cat);
-  container.innerHTML = `<h3 style="color:${categoryColor(cat)}">${categoryLabel(cat)}</h3>`;
+  container.innerHTML = '';
+  const heading = document.createElement('h3');
+  heading.style.color = categoryColor(cat);
+  heading.textContent = categoryLabel(cat);
+  container.appendChild(heading);
   if (events.length === 0) {
-    container.innerHTML += '<div class="empty-state" style="padding:20px 0">Нет событий</div>';
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.style.padding = '20px 0';
+    empty.textContent = 'Нет событий';
+    container.appendChild(empty);
     return;
   }
   events.forEach(ev => {

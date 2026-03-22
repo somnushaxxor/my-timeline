@@ -172,7 +172,7 @@ main {
   transform: translateY(0);
   transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition);
 }
-.event-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.event-card.visible:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
 .event-card::before {
   content: '';
   position: absolute;
@@ -331,4 +331,12 @@ main {
   main { padding: 20px 16px; }
   header { padding: 0 16px; }
   .site-title { font-size: 0.95rem; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .event-card { opacity: 1; transform: none; transition: none; }
+  .event-card.visible { transition: none; }
+  .modal-overlay, .modal { transition: none; }
+  body, header, .theme-btn { transition: none; }
 }

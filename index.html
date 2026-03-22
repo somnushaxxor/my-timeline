@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моя жизнь</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <span class="site-title">Моя жизнь</span>
+    <div class="view-switcher">
+      <button class="view-btn active" data-view="timeline">Лента</button>
+      <button class="view-btn" data-view="skill-tree">Граф</button>
+    </div>
+    <button class="theme-btn" id="theme-toggle" aria-label="Переключить тему">🌙</button>
+  </header>
+
+  <main>
+    <!-- Timeline view -->
+    <div id="timeline-view">
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-cat="ALL">Все</button>
+        <button class="filter-btn" data-cat="WORK">Работа</button>
+        <button class="filter-btn" data-cat="PROJECT">Проект</button>
+        <button class="filter-btn" data-cat="TRAVEL">Путешествие</button>
+        <button class="filter-btn" data-cat="PERSONAL">Личное</button>
+        <button class="filter-btn" data-cat="LEARNING">Самообразование</button>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+
+    <!-- Skill Tree view -->
+    <div id="skill-tree-view" class="hidden">
+      <canvas id="skill-canvas" width="600" height="400"></canvas>
+      <!-- Mobile accordion (shown via CSS at < 600px) -->
+      <div class="accordion" id="skill-accordion"></div>
+      <!-- Desktop: selected category events -->
+      <div class="skill-tree-events" id="skill-events"></div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title"></h2>
+        <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      </div>
+      <div class="modal-meta">
+        <span class="modal-date" id="modal-date"></span>
+        <span class="badge" id="modal-badge"></span>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

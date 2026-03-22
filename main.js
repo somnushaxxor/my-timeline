@@ -54,19 +54,46 @@ function initViewSwitcher() {
       if (view === currentView) return;
       currentView = view;
       document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b === btn));
+
       const timelineEl = document.getElementById('timeline-view');
       const skillEl = document.getElementById('skill-tree-view');
-      if (view === 'timeline') {
-        skillEl.classList.add('hidden');
-        timelineEl.classList.remove('hidden');
-        // Reset filter when switching
-        setTimelineEvents(allEvents);
-        renderTimeline(allEvents);
-      } else {
-        timelineEl.classList.add('hidden');
-        skillEl.classList.remove('hidden');
-        renderSkillTree(allEvents);
-      }
+
+      const outEl = view === 'timeline' ? skillEl : timelineEl;
+      const inEl  = view === 'timeline' ? timelineEl : skillEl;
+
+      // Fade out current view
+      outEl.style.opacity = '0';
+      outEl.style.transition = 'opacity 0.2s ease';
+
+      setTimeout(() => {
+        outEl.classList.add('hidden');
+        inEl.classList.remove('hidden');
+        inEl.style.opacity = '0';
+        inEl.style.transition = 'opacity 0.2s ease';
+
+        // Trigger reflow then fade in
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            inEl.style.opacity = '1';
+          });
+        });
+
+        // Reset inline styles after transition
+        setTimeout(() => {
+          outEl.style.opacity = '';
+          outEl.style.transition = '';
+          inEl.style.opacity = '';
+          inEl.style.transition = '';
+        }, 220);
+
+        // Render the new view
+        if (view === 'timeline') {
+          setTimelineEvents(allEvents);
+          renderTimeline(allEvents);
+        } else {
+          renderSkillTree(allEvents);
+        }
+      }, 200);
     });
   });
 }

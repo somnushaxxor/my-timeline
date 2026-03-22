@@ -323,6 +323,7 @@ main {
 }
 #timeline-view.hidden, #skill-tree-view.hidden {
   display: none;
+  opacity: 0;
 }
 
 /* ── Responsive ── */

@@ -74,6 +74,14 @@
       "category": "WORK"
     },
     {
+      "id": "2025-06-01-cloffer-interns",
+      "date": "2025-06-01",
+      "title": "Наняли стажёров в Cloffer",
+      "summary": "В команду Cloffer пришли первые стажёры",
+      "description": "В команду Cloffer пришли первые стажёры.",
+      "category": "PROJECT"
+    },
+    {
       "id": "2025-06-01-moved-to-moscow",
       "date": "2025-06-01",
       "title": "Переезд в Москву",
@@ -90,6 +98,14 @@
       "category": "WORK"
     },
     {
+      "id": "2025-08-01-cursor",
+      "date": "2025-08-01",
+      "title": "Первый раз попробовал Cursor",
+      "summary": "Начал пользоваться AI-редактором Cursor",
+      "description": "Начал пользоваться AI-редактором Cursor.",
+      "category": "LEARNING"
+    },
+    {
       "id": "2025-08-15-saint-petersburg",
       "date": "2025-08-15",
       "title": "Поездка в Петербург с семьёй",
@@ -98,12 +114,28 @@
       "category": "TRAVEL"
     },
     {
+      "id": "2025-11-01-cloffer-grant-closed",
+      "date": "2025-11-01",
+      "title": "Закрыли грант по Cloffer",
+      "summary": "Успешно закрыли грант на 4 млн рублей по проекту Cloffer",
+      "description": "Успешно закрыли грант на 4 млн рублей по проекту Cloffer.",
+      "category": "PROJECT"
+    },
+    {
       "id": "2026-01-17-asia-trip",
       "date": "2026-01-17",
       "title": "Путешествие по Азии",
       "summary": "Полтора месяца в Азии: Бангкок, Да-Нанг, Пхукет",
       "description": "Полтора месяца в Азии: Бангкок, Да-Нанг, Пхукет. 17 января — 1 марта.",
       "category": "TRAVEL"
+    },
+    {
+      "id": "2026-03-01-claude-code",
+      "date": "2026-03-01",
+      "title": "Первый раз попробовал Claude Code",
+      "summary": "Начал пользоваться Claude Code",
+      "description": "Начал пользоваться Claude Code.",
+      "category": "LEARNING"
     },
     {
       "id": "2026-03-27-snowboard-sheregesh",
